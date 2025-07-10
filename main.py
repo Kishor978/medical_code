@@ -7,9 +7,15 @@ from dotenv import load_dotenv
 import os
 from pathlib import Path
 
-load_dotenv()
+import streamlit as st
+from openai import OpenAI
 
-OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
+# Load API key from Streamlit secrets
+api_key = st.secrets["OPENAI_API_KEY"]
+
+# Create the OpenAI client
+client = OpenAI(api_key=api_key)
+
 OPENAI_MODEL = "gpt-4o"
 
 from openai import OpenAI

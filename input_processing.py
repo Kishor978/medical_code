@@ -7,7 +7,11 @@ from openai import OpenAI
 import base64
 import os
 
-client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+# Load API key from Streamlit secrets
+api_key = st.secrets["OPENAI_API_KEY"]
+
+# Create the OpenAI client
+client = OpenAI(api_key=api_key)
 
 def extract_text_from_image(image_file):
     try:
