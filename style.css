@@ -1,0 +1,407 @@
+/* Base styles - these apply regardless of theme, or serve as default */
+body {
+    font-family: 'Inter', 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif; /* Prioritize Inter if available, then fallback */
+    margin: 0;
+    padding: 0;
+}
+
+/* Hide Streamlit's default elements for a cleaner look */
+#MainMenu { visibility: hidden; }
+footer { visibility: hidden; }
+.stDeployButton { display: none; }
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+}
+
+/* Shared element styles that mostly need color changes based on theme */
+
+/* Header Container */
+.header-container {
+    padding: 2.5rem 0; /* Slightly more vertical padding */
+    text-align: center;
+    border-bottom: 1px solid; /* Color defined by theme */
+    margin-bottom: 2rem;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.03); /* More subtle shadow for the header itself */
+}
+
+/* Main Title - "Leeontek AI Medical Coder" */
+.main-title {
+    font-family: 'Poppins', 'Montserrat', sans-serif; /* Bolder, modern font for headings */
+    font-size: 2.8rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    /* Color defined by theme */
+}
+
+/* Subtitle - "Intelligent ICD-10 Coding Assistant powered by AI" */
+.subtitle {
+    font-size: 1.2rem;
+    margin-top: 0;
+    /* Color defined by theme */
+}
+
+/* Info Box (st.info) */
+div[data-testid="stAlert"].st-emotion-cache-k3g09m.e1nzilhr1 {
+    border-radius: 8px;
+    padding: 15px;
+    margin-top: 1.5rem; /* More space from header/divider */
+    margin-bottom: 1.5rem;
+    border-left: 5px solid; /* Color defined by theme */
+    /* Background and text color defined by theme */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05); /* Subtle shadow for info box */
+}
+
+/* Chat History Container (The scrollable box where messages appear) */
+div[data-testid="stVerticalBlock"] > div.stVerticalBlock:nth-child(4) > div:nth-child(1) {
+    border: 1px solid; /* Color defined by theme */
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: 0 4px 15px; /* Color defined by theme */
+    margin-bottom: 1rem;
+    /* Background defined by theme */
+}
+
+/* Chat Message Bubbles */
+div.stChatMessage {
+    padding: 10px 15px;
+    border-radius: 18px;
+    margin-bottom: 10px;
+    max-width: 85%;
+    word-wrap: break-word;
+    box-shadow: 0 1px 4px; /* Color defined by theme */
+    /* Background and text color defined by theme */
+}
+div.stChatMessage[data-testid="stChatMessage"] div.stMarkdown p {
+    margin-bottom: 0;
+}
+div[data-testid="stChatMessage"][data-message-role="user"] {
+    border-bottom-right-radius: 4px;
+    margin-left: auto;
+    text-align: right;
+}
+div[data-testid="stChatMessage"][data-message-role="user"] .stMarkdown {
+    text-align: left;
+}
+div[data-testid="stChatMessage"][data-message-role="assistant"] {
+    border-bottom-left-radius: 4px;
+    text-align: left;
+}
+
+/* Chat Input Area */
+div[data-testid="stChatInput"] {
+    margin-top: 1.5rem; /* More space between chat history and input */
+    padding-bottom: 1rem; /* Ensure space at the very bottom */
+}
+div[data-testid="stChatInput"] > div > div > label {
+    font-weight: 600;
+}
+div[data-testid="stChatInput"] input {
+    border-radius: 25px; /* More rounded */
+    border: 1px solid;
+    padding: 12px 20px;
+    font-size: 1rem;
+    transition: all 0.2s ease-in-out;
+}
+div[data-testid="stChatInput"] input::placeholder {
+    font-style: italic; /* Subtle touch */
+}
+div[data-testid="stChatInput"] input:focus {
+    box-shadow: 0 0 0 0.2rem;
+    outline: none;
+}
+
+/* File Uploader Dropzone (inside popover) */
+[data-testid="stFileUploaderDropzone"] {
+    border: 2px dashed;
+    border-radius: 12px;
+    padding: 20px;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+[data-testid="stFileUploaderDropzone"]:hover {
+}
+
+/* Alerts (Error) */
+div[data-testid="stAlert"].st-emotion-cache-121l3h4.e1nzilhr1 {
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 1rem;
+    border-left: 5px solid #dc3545; /* Fixed red for errors */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05); /* Subtle shadow for error box */
+}
+
+/* Spinner and Status messages */
+.stSpinner > div > span {
+}
+div[data-testid="stStatusContainer"] {
+    border-left: 5px solid #28a745; /* Fixed green for success status */
+    border-radius: 8px;
+    padding: 10px 15px;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+div[data-testid="stStatusContainer"][data-expanded="true"] {
+}
+
+/* Secondary Buttons (e.g., in alerts or popovers) */
+button[data-testid="baseButton-secondary"] {
+    border-radius: 20px;
+    padding: 8px 15px;
+    font-weight: 500;
+    border: 1px solid;
+    transition: all 0.2s ease-in-out;
+}
+button[data-testid="baseButton-secondary"]:hover {
+}
+
+/* Divider */
+hr {
+    border-top: 1px solid;
+    margin: 1.5rem 0;
+}
+
+/* Streamlit Popover button (📎 icon) */
+button[data-testid="stPopover"] {
+    background-color: transparent !important;
+    border: none !important;
+    font-size: 1.5rem;
+    padding: 0.5rem;
+    margin-top: auto;
+    margin-bottom: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+button[data-testid="stPopover"]:hover {
+    border-radius: 50% !important;
+}
+
+/* Column Alignment for Input Area */
+div[data-testid="stColumn"] {
+    display: flex;
+    align-items: center; /* Vertically align items in columns */
+}
+
+
+/* ========================================= */
+/* DARK MODE STYLES                        */
+/* ========================================= */
+@media (prefers-color-scheme: dark) {
+    body {
+        color: #e0e0e0;
+        background-color: #1a1a2e; /* Deeper blue for background */
+    }
+    .stApp {
+        background-color: #1a1a2e;
+    }
+    .header-container {
+        background-color: #0f0f1d; /* Slightly darker header */
+        border-color: #33334d;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    }
+    .main-title {
+        color: #8bd2f0; /* Brighter blue for title */
+    }
+    .subtitle {
+        color: #b0b0b0;
+    }
+    div[data-testid="stAlert"].st-emotion-cache-k3g09m.e1nzilhr1 { /* Info alert */
+        background-color: #2a3a5c;
+        border-left-color: #8bd2f0;
+        color: #e0e0e0;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    div[data-testid="stVerticalBlock"] > div.stVerticalBlock:nth-child(4) > div:nth-child(1) {
+        border-color: #33334d;
+        background-color: #0f0f1d;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    }
+    div.stChatMessage[data-testid="stChatMessage"][data-message-role="user"] {
+        background-color: #2a3a5c;
+        color: #e0e0e0;
+    }
+    div[data-testid="stChatMessage"][data-message-role="assistant"] {
+        background-color: #21213d;
+        color: #e0e0e0;
+    }
+    div[data-testid="stChatInput"] > div > div > label {
+        color: #b0b0b0;
+    }
+    div[data-testid="stChatInput"] input {
+        border-color: #33334d;
+        background-color: #0f0f1d;
+        color: #e0e0e0;
+    }
+    div[data-testid="stChatInput"] input::placeholder {
+        color: #888888;
+    }
+    div[data-testid="stChatInput"] input:focus {
+        border-color: #8bd2f0; /* Accent blue */
+        box-shadow: 0 0 0 0.2rem rgba(139, 210, 240, 0.25);
+    }
+    [data-testid="stFileUploaderDropzone"] {
+        border-color: #8bd2f0;
+        background-color: #21213d;
+        color: #8bd2f0;
+    }
+    [data-testid="stFileUploaderDropzone"]:hover {
+        background-color: #2a3a5c;
+    }
+    div[data-testid="stAlert"].st-emotion-cache-121l3h4.e1nzilhr1 { /* Error alert */
+        background-color: #5c2a2a;
+        color: #e0e0e0;
+    }
+    .stSpinner > div > span {
+        color: #8bd2f0;
+    }
+    div[data-testid="stStatusContainer"] {
+        background-color: #21213d;
+        color: #e0e0e0;
+    }
+    div[data-testid="stStatusContainer"][data-expanded="true"] {
+        background-color: #2a3a5c;
+    }
+    ::-webkit-scrollbar-track {
+        background: #2a3a5c;
+    }
+    ::-webkit-scrollbar-thumb {
+        background: #555577;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+        background: #666699;
+    }
+    button[data-testid="baseButton-secondary"] {
+        border-color: #8bd2f0;
+        color: #8bd2f0;
+        background-color: #1a1a2e;
+    }
+    button[data-testid="baseButton-secondary"]:hover {
+        background-color: #8bd2f0;
+        color: #1a1a2e;
+    }
+    hr {
+        border-top-color: #33334d;
+    }
+    button[data-testid="stPopover"] {
+        color: #8bd2f0 !important;
+    }
+    button[data-testid="stPopover"]:hover {
+        background-color: rgba(139, 210, 240, 0.1) !important;
+    }
+}
+
+/* ========================================= */
+/* LIGHT MODE STYLES                       */
+/* ========================================= */
+@media (prefers-color-scheme: light) {
+    body {
+        color: #333333;
+        background-color: #ffffff; /* Lighter background to match website */
+    }
+    .stApp {
+        background-color: #ffffff;
+    }
+    .header-container {
+        background-color: #d3e9f7; /* Clean white header */
+        border-color: #dce8f8;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.05); /* Subtle shadow for header */
+    }
+    .main-title {
+        color: #316CE6; /* A clean blue from the website's palette */
+    }
+    .subtitle {
+        color: #555555;
+    }
+    div[data-testid="stAlert"].st-emotion-cache-k3g09m.e1nzilhr1 { /* Info alert */
+        background-color: #084b94; /* Light blue background for info */
+        border-left-color: #316CE6; /* Matching accent blue */
+        color: #c71c1c;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+    div[data-testid="stVerticalBlock"] > div.stVerticalBlock:nth-child(4) > div:nth-child(1) {
+        border-color: #e0e0e0;
+        background-color: #ffffff;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); /* Slightly more pronounced shadow for content blocks */
+    }
+    div.stChatMessage[data-testid="stChatMessage"][data-message-role="user"] {
+        background-color: #E6F2FF; /* Very light blue for user messages */
+        color: #333333;
+    }
+    div[data-testid="stChatMessage"][data-message-role="assistant"] {
+        background-color: #F0F0F0; /* Soft gray for assistant messages */
+        color: #333333;
+    }
+    div[data-testid="stChatInput"] > div > div > label {
+        color: #555555;
+    }
+    div[data-testid="stChatInput"] input {
+        border-color: #CED4DA; /* Light grey border */
+        background-color: #ffffff;
+        color: #333333;
+    }
+    div[data-testid="stChatInput"] input::placeholder {
+        color: #888888;
+    }
+    div[data-testid="stChatInput"] input:focus {
+        border-color: #316CE6; /* Accent blue on focus */
+        box-shadow: 0 0 0 0.2rem rgba(49, 108, 230, 0.25);
+    }
+    [data-testid="stFileUploaderDropzone"] {
+        border-color: #316CE6; /* Accent blue dashed border */
+        background-color: #E6F2FF; /* Light blue background */
+        color: #316CE6;
+    }
+    [data-testid="stFileUploaderDropzone"]:hover {
+        background-color: #d1e7ff;
+    }
+    div[data-testid="stAlert"].st-emotion-cache-121l3h4.e1nzilhr1 { /* Error alert */
+        background-color: #fce8e8;
+        color: #333333;
+    }
+    .stSpinner > div > span {
+        color: #316CE6;
+    }
+    div[data-testid="stStatusContainer"] {
+        background-color: #eafbe7; /* Very light green for success */
+        color: #333333;
+    }
+    div[data-testid="stStatusContainer"][data-expanded="true"] {
+        background-color: #d7f4d7;
+    }
+    ::-webkit-scrollbar-track {
+        background: #f1f1f1;
+    }
+    ::-webkit-scrollbar-thumb {
+        background: #888;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+        background: #555;
+    }
+    button[data-testid="baseButton-secondary"] {
+        border-color: #316CE6;
+        color: #316CE6;
+        background-color: #dd2525;
+    }
+    button[data-testid="baseButton-secondary"]:hover {
+        background-color: #316CE6;
+        color: #ffffff;
+    }
+    hr {
+        border-top-color: #e0e0e0;
+    }
+    button[data-testid="stPopover"] {
+        color: #316CE6 !important; /* Accent blue for popover icon */
+    }
+    button[data-testid="stPopover"]:hover {
+        background-color: rgba(49, 108, 230, 0.1) !important;
+    }
+}
